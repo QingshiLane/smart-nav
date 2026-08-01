@@ -146,11 +146,13 @@
 
         <!-- 搜索引擎组件 -->
         <div class="w-full max-w-2xl mb-16 relative z-[100]">
-            <form id="search-form" action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer" class="relative">
+            <form id="search-form" action="https://www.baidu.com/s" method="get" target="_blank" rel="noopener noreferrer" class="relative">
+            <!-- <form id="search-form" action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer" class="relative"> -->
                 <div class="flex items-center glass-input rounded-2xl border border-slate-700/40 shadow-2xl focus-within:border-indigo-500/80 transition-all duration-300">
                     <div class="relative pl-4">
                         <button type="button" aria-label="切换搜索引擎" id="engine-btn" onclick="toggleEngineMenu(event)" class="flex items-center space-x-2 text-slate-400 hover:text-indigo-400 transition-colors py-4 pr-2 cursor-pointer">
-                            <i id="engine-icon" class="fab fa-google text-blue-400"></i>
+                            <!-- <i id="engine-icon" class="fab fa-google text-blue-400"></i> -->
+                            <i id="engine-icon" class="fas fa-paw text-red-400"></i>
                             <i class="fas fa-chevron-down text-xs opacity-50"></i>
                         </button>
                         <div id="engine-menu" class="absolute left-2 top-full mt-2 w-36 bg-slate-950/95 border border-slate-800 rounded-xl shadow-2xl hidden backdrop-blur-md overflow-hidden z-[110]">
@@ -160,7 +162,8 @@
                             <button type="button" onclick="selectEngine('github')" class="w-full text-left px-4 py-2.5 hover:bg-indigo-600/20 text-sm flex items-center space-x-2 cursor-pointer"><i class="fab fa-github text-slate-400"></i> <span>GitHub</span></button>
                         </div>
                     </div>
-                    <input type="text" id="search-input" name="q" data-i18n-placeholder="searchGoogle" placeholder="在 Google 中搜索..." autocomplete="off" class="w-full bg-transparent border-none py-4 px-3 focus:outline-none focus:ring-0 text-base">
+                    <input type="text" id="search-input" name="wd" data-i18n-placeholder="searchBaidu" placeholder="在 百度 Baidu 中搜索..." autocomplete="off" class="w-full bg-transparent border-none py-4 px-3 focus:outline-none focus:ring-0 text-base">
+                    <!-- <input type="text" id="search-input" name="q" data-i18n-placeholder="searchGoogle" placeholder="在 Google 中搜索..." autocomplete="off" class="w-full bg-transparent border-none py-4 px-3 focus:outline-none focus:ring-0 text-base"> -->
                     <button type="submit" aria-label="搜索" class="mr-3 p-2.5 text-slate-400 hover:text-indigo-400 transition-colors">
                         <i class="fas fa-search text-lg"></i>
                     </button>
@@ -345,7 +348,7 @@
             if (pwd === null) return;
             
             // 【关键】：校验密码时优先使用云端配置，如果没有则使用初始密码 admin888
-            const currentValidPwd = cloudConfig.adminPwd || "admin888";
+            const currentValidPwd = cloudConfig.adminPwd || "ggyyds";
             
             if (pwd === currentValidPwd) { 
                 localStorage.setItem('nav_admin_auth', 'true'); alert(t('pwdSuccess')); checkAdminSession(); 
